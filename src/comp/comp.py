@@ -1,5 +1,7 @@
 # The following list comprehension exercises will make use of the
 # defined Human class.
+
+
 import math
 
 
@@ -28,13 +30,13 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [d for d in humans if d.name[0] == "D"]
+a = [d.name for d in humans if d.name[0] == 'D']
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [e for e in humans if e.name[-1] == "e"]
+b = [e.name for e in humans if e.name[len(e.name) - 1] == 'e']
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -59,14 +61,14 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [(a.name, a.age) for a in humans if a.age in range(27, 32)]
+f = [(a.name, a.age) for a in humans if (a.age >= 27 and a.age <= 32)]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [f"{a.name.upper()} {a.age + 5}" for a in humans]
+g = [Human(a.name.upper(), a.age + 5) for a in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
